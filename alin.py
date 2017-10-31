@@ -2,7 +2,7 @@
 import LINETCR
 from LINETCR.lib.curve.ttypes import *
 from datetime import datetime
-import time,random,sys,json,codecs,threading,glob,re
+import time,random,sys,json,codecs,threading,glob
 
 cl = LINETCR.LINE()
 cl.login(token="EmXdTxLztI2i7HJrOEga.h3KqNoP0JeN8FrJP6uiJoG.JUnY5thI0O7mTrNL/8tv6g8dHTbDE2Kyw2c+E9nmxHc=")
