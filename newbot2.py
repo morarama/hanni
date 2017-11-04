@@ -1,5 +1,6 @@
 
 # -*- coding: utf-8 -*-
+
 import LINETCR
 from LINETCR.lib.curve.ttypes import *
 from datetime import datetime
@@ -51,7 +52,9 @@ Dmid = kd.getProfile().mid
 Emid = ke.getProfile().mid
 Fmid = kf.getProfile().mid
 Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid]
-admin = ["u4f451941825df421ab9fe883c07b08d8"]
+admin = ["u1f79109cea748c49fc7d18e9e942233a","u4f451941825df421ab9fe883c07b08d8"]
+me = ["u4f451941825df421ab9fe883c07b08d8"]
+adminMID = ["u4f451941825df421ab9fe883c07b08d8","u1f79109cea748c49fc7d18e9e942233a"]
 
 wait = {
     'protect':False,
@@ -890,29 +893,12 @@ def bot(op):
             elif msg.text in ["Slower join"]:
                 if msg.from_ in admin:
                     G = cl.getGroup(msg.to)
-                    G = ki.getGroup(msg.to)
-                    G = kk.getGroup(msg.to)
-                    G = kc.getGroup(msg.to)
-                    G = kd.getGroup(msg.to)
-                    G = ke.getGroup(msg.to)
-                    G = kf.getGroup(msg.to)
+                    ginfo = cl.getGroup(msg.to)
                     G.preventJoinByTicket = False
                     cl.updateGroup(G)
-                    ki.updateGroup(G)
-                    kk.updateGroup(G)
-                    kc.updateGroup(G)
-                    kd.updateGroup(G)
-                    ke.updateGroup(G)
-                    kf.updateGroup(G)
                     print "EXECUTED -- SUMMON BOT"
                     invsend = 0
                     Ticket = cl.reissueGroupTicket(msg.to)
-                    Ticket = ki.reissueGroupTicket(msg.to)
-                    Ticket = kk.reissueGroupTicket(msg.to)
-                    Ticket = kc.reissueGroupTicket(msg.to)
-                    Ticket = kd.reissueGroupTicket(msg.to)
-                    Ticket = ke.reissueGroupTicket(msg.to)
-                    Ticket = kf.reissueGroupTicket(msg.to)
                     ki.acceptGroupInvitationByTicket(msg.to,Ticket)
                     time.sleep(0.0)
                     kk.acceptGroupInvitationByTicket(msg.to,Ticket)
@@ -925,7 +911,6 @@ def bot(op):
                     time.sleep(0.0)
                     kf.acceptGroupInvitationByTicket(msg.to,Ticket)
                     time.sleep(0.0)
-                    cl.sendText(msg.to, "整天Join Jo啥小??")
                     G = cl.getGroup(msg.to)
                     G.preventJoinByTicket = True
                     ki.updateGroup(G)
