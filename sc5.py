@@ -1,39 +1,38 @@
 # -*- coding: utf-8 -*-
 
-
 import LINETCR
 from LINETCR.lib.curve.ttypes import *
 from datetime import datetime
 import time,random,sys,json,codecs,threading,glob,re,urllib
 
+
 cl = LINETCR.LINE()
-cl.login(token="EmUIFWqQy9nPPp5CN8Ya.h3KqNoP0JeN8FrJP6uiJoG.B1KOLKJPw0XN+AgxR6DP+afm+tjd0ey9tU6h9i8HAv0=")
+cl.login(token="EmqyfGRzG8shyaxxyxva.h3KqNoP0JeN8FrJP6uiJoG.65n8x0QhvQulMeOArHx3qyz52in9QZbKWiCG2tE+Tvk=")
 cl.loginResult()
 
 ki = LINETCR.LINE()
-ki.login(token="EmJ7Wbl5jqjWB5UT8sLd.cwB+CDbraDzJDa9X1PRpxq.VeMCwhfZ4tRGJEcTBUgC4y7nEBkloKHBjwH3zVVKcKU=")
+ki.login(token="EmwnVm7w7q6NlRziTL3d.cwB+CDbraDzJDa9X1PRpxq.GzQZOQbUdJHQyru23nhTyM52/ycsmG+rg9q1kfjah2I=")
 ki.loginResult()
 
 ki2 = LINETCR.LINE()
-ki2.login(token="Emvr4xUr1UudXxSrrrf8.DTbDh/XY1svG6guOLGgrEa.+MkDmZZ4M5Ra49AxrQmaHfUOCaHXGoNNbvwdRuMZtS4=")
+ki2.login(token="EmcdGcr39siPjyfjUHU8.DTbDh/XY1svG6guOLGgrEa.J9aK10nBHHPamoTrpNycY3jwIpaokHSUe4DKrMyCblM=")
 ki2.loginResult()
 
 ki3 = LINETCR.LINE()
-ki3.login(token="EmWY0PldWnyNTQYTH332.KpKWyorTPY1wwWUHFd03OG.EN+xOOr7sPJNHNZLJi8Ed3PntGiNn6M+Ljd9jkH5ZSE=")
+ki3.login(token="EmKkIYjfelsmgNiXTIh2.KpKWyorTPY1wwWUHFd03OG.yUrwPRkpJqbiZ1tohkh7+SpX1TWpUP+/RVUdTkhEgAg=")
 ki3.loginResult()
 
 ki4 = LINETCR.LINE()
-ki4.login(token="EmNNsgitRRyzvPcFtr6f.7I8ZPERZDnDxt4+rBdMTlW.yQjW9GeMFbncDx5o44mFNVA/MAfmKZxxOyXjCj1/53c=")
+ki4.login(token="EmllAMjlbuZXcuGB3Icf.7I8ZPERZDnDxt4+rBdMTlW.as/wQesc1IqyojkUIln11tZZBZ26qIpFEb0mINH9ud8=")
 ki4.loginResult()
 
 ki5 = LINETCR.LINE()
-ki5.login(token="Em6AxH0adcVK6G8fuZk3.x29XInczKFNk/xybxHWLaW.h+yEJhBNGPfcYJj8UlafClMTZ6cQyt15jhNul5bqvVo=")
+ki5.login(token="EmabC3fOGOWwmEygtp13.x29XInczKFNk/xybxHWLaW.thsEmz8zYjLz9BgPilr6+jNr/yWRzZssIwWxluictW4=")
 ki5.loginResult()
 
 ki6 = LINETCR.LINE()
-ki6.login(token="EmHsGX62pKLoaD828vDa.EZrmTlyikc+xw1PbTxMkMG.qFhU4/Qd+64TNcfnLc7kRvoEWkj5ckD9wQ/oa0UAYQY=")
+ki6.login(token="EmV3Z7jQ9Wg9FZWwPs1a.EZrmTlyikc+xw1PbTxMkMG.ad92k8jIFR2mSsvn6MzMeJBEPpWY6xdlVCAVPUD9bIo=")
 ki6.loginResult()
-
 
 helpMessage ="""      ༺ĸ ҉e ҉v ҉ι ҉n ҉ в ҉o ҉т ҉༻\n✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω̶T҉̶̘̟̼̉̈́͐͋͌̊✈
 
@@ -89,6 +88,7 @@ helpMessage ="""      ༺ĸ ҉e ҉v ҉ι ҉n ҉ в ҉o ҉т ҉�
 
  ✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω̶T҉̶̘̟̼̉̈́͐͋͌̊✈
 
+
 ☞ http://line.me/ti/p/~ ☜
 """
 helo=""
@@ -102,7 +102,7 @@ ki4mid = ki4.getProfile().mid
 ki5mid = ki5.getProfile().mid
 ki6mid = ki6.getProfile().mid
 Bots=[mid,kimid,ki2mid,ki3mid,ki4mid,ki5mid,ki6mid]
-admin = ["u4f451941825df421ab9fe883c07b08d8","u1f79109cea748c49fc7d18e9e942233a"]
+admin = "u4f451941825df421ab9fe883c07b08d8"
 
 wait = {
     'contact':False,
@@ -392,7 +392,7 @@ def bot(op):
             msg = op.message
             if msg.toType == 0:
                 msg.to = msg.from_
-            if msg.from_ == "u4f451941825df421ab9fe883c07b08d8":
+            if msg.from_ == "MID KAMU":
                     if "join:" in msg.text:
                         list_ = msg.text.split(":")
                         try:
@@ -505,7 +505,7 @@ def bot(op):
                     gs = ki3.getGroup(msg.to)
                     gs = ki4.getGroup(msg.to)
                     gs = ki.getGroup(msg.to)
-                    ki.sendText(msg.to,"「 Mayhem 」\nMayhem is STARTING♪\n ' abort' to abort♪")
+                    ki.sendText(msg.to,"「 Mayhem 」\nMayhem is STARTING♪\n ' abort' to abort♪") 
                     ki.sendText(msg.to,"「 Mayhem 」\n 46 victims shall yell hul·la·ba·loo♪\n /ˌhələbəˈlo͞o,ˈhələbəˌlo͞o/")
                     targets = []
                     for g in gs.members:
@@ -1319,6 +1319,7 @@ def bot(op):
                     cl.sendText(msg.to,"line://ti/g/" + gurl)
                 else:
                     cl.sendText(msg.to,"ã‚°ãƒ«ãƒ¼ãƒ—ä»¥å¤–ã§ã¯ä½¿ç”¨ã§ãã¾ã›ã‚“👈")
+
             elif "gurl" in msg.text:
                 if msg.toType == 1:
                     tid = msg.text.replace("gurl","")
@@ -1943,7 +1944,6 @@ def bot(op):
                     except:
                         pass
 
-
 #-----------------------------------------------
 	    elif "Contact bc " in msg.text:
                   bctxt = msg.text.replace("Contact bc ", "")
@@ -2131,7 +2131,6 @@ def bot(op):
                     cl.sendText(msg.to,"m.spankbang.com")
                     cl.sendText(msg.to,"m.4tube.com")
                     cl.sendText(msg.to,"brazzers.com")
-
      #----------------------Fungsi Spam Finish-------------------------------#
 	    elif msg.text in ["Sp","Speed","speed"]:
                 start = time.time()
@@ -2139,6 +2138,17 @@ def bot(op):
                 elapsed_time = time.time() - start
                 cl.sendText(msg.to, "%sseconds" % (elapsed_time))
                 elapsed_time = time.time() - start
+                ki.sendText(msg.to, "%sseconds" % (elapsed_time))
+                elapsed_time = time.time() - start
+                ki2.sendText(msg.to, "%sseconds" % (elapsed_time))
+                elapsed_time = time.time() - start
+                ki3.sendText(msg.to, "%sseconds" % (elapsed_time))
+                elapsed_time = time.time() - start
+                ki4.sendText(msg.to, "%sseconds" % (elapsed_time))
+                elapsed_time = time.time() - start
+                ki5.sendText(msg.to, "%sseconds" % (elapsed_time))
+                elapsed_time = time.time() - start
+                ki6.sendText(msg.to, "%sseconds" % (elapsed_time))
 
 #-------------Fungsi Tagall User Start---------------#
             elif msg.text in ["Dor","dor","Ngntd","ngntd","Cum","cum"]:
@@ -2388,16 +2398,24 @@ def bot(op):
                     except:
                         pass
 #-----------------------------------------------
+            elif "Kb Key" in msg.text:
+                ki.sendText(msg.to,"""      􀜁􀇔􏿿􀜁􀇔􏿿 KEPIN BOT [KB] 􀜁􀇔􏿿􀜁􀇔􏿿  \n\n 􀜁􀇔􏿿 key Only Kicker 􀜁􀇔􏿿 \n\n􀜁􀇔􏿿[Kb1 in]\n􀜁􀇔􏿿[1name:]\n􀜁􀇔􏿿[B Cancel]\n􀜁􀇔􏿿[kick @]\n􀜁􀇔􏿿[Ban @]\n􀜁􀇔􏿿[kill]\n􀜁􀇔􏿿[BotChat]\n􀜁􀇔􏿿[Respons]\n􀜁􀇔􏿿[Kb1 Gift]\n􀜁􀇔􏿿[Kb1 bye]\n\n   ☆ K̴̹̳̺̟̃̂͑̿͑̔͌͡ͅĕ̸̡̞͙̲̙̥̥͐̉̆̀v̨̧̛̛͎̺̭̬͈̠̙̉̾̀́͐̍͊̚͜į͉̹͕̳̹̙̙̽̽́̀̐̌̏̊̇n̨̗̥̼̒̀̐͊͐̕͜͠ B̵̺̦̦̫̦͉̳̜͋̃̅̎͒̇̚͞͠ǫ͈̮̼͍̙̰̜̔̀͛̀̐͌͟͡͝t̶̨͓̰̩̎͐̀͑̋̋͢͠""")
+                ki2.sendText(msg.to,"""     􀜁􀇔􏿿􀜁􀇔􏿿 KEPIN BOT [KB] 􀜁􀇔􏿿􀜁􀇔􏿿  \n\n 􀜁􀇔􏿿 key Only Kicker 􀜁􀇔􏿿 \n\n􀜁􀇔􏿿[Kb2 in]\n􀜁􀇔􏿿[2name:]\n􀜁􀇔􏿿[B Cancel]\n􀜁􀇔􏿿[kick @]\n􀜁􀇔􏿿[Ban @]\n􀜁􀇔􏿿[kill]\n􀜁􀇔􏿿[BotChat]\n􀜁􀇔􏿿[Respons]\n􀜁􀇔􏿿[Kb2 Gift]\n􀜁􀇔􏿿[Kb2 bye]\n\n     ☆K̴̹̳̺̟̃̂͑̿͑̔͌͡ͅĕ̸̡̞͙̲̙̥̥͐̉̆̀v̨̧̛̛͎̺̭̬͈̠̙̉̾̀́͐̍͊̚͜į͉̹͕̳̹̙̙̽̽́̀̐̌̏̊̇n̨̗̥̼̒̀̐͊͐̕͜͠ B̵̺̦̦̫̦͉̳̜͋̃̅̎͒̇̚͞͠ǫ͈̮̼͍̙̰̜̔̀͛̀̐͌͟͡͝t̶̨͓̰̩̎͐̀͑̋̋͢͠☆""")
+                ki3.sendText(msg.to,"""     􀜁􀇔􏿿􀜁􀇔􏿿 KEPIN BOT [KB] 􀜁􀇔􏿿􀜁􀇔􏿿  \n\n 􀜁􀇔􏿿 key Only Kicker 􀜁􀇔􏿿 \n\n􀜁􀇔􏿿[Kb3 in]\n􀜁􀇔􏿿[3name:]\n􀜁􀇔􏿿[B Cancel]\n􀜁􀇔􏿿[kick @]\n􀜁􀇔􏿿[Ban @]\n􀜁􀇔􏿿[kill]\n􀜁􀇔􏿿[BotChat]\n􀜁􀇔􏿿[Respons]\n􀜁􀇔��[Kb3 Gift]\n��􀇔􏿿[Kb3 bye]\n\n     ☆K̴̹̳̺̟̃̂͑̿͑̔͌͡ͅĕ̸̡̞͙̲̙̥̥͐̉̆̀v̨̧̛̛͎̺̭̬͈̠̙̉̾̀́͐̍͊̚͜į͉̹͕̳̹̙̙̽̽́̀̐̌̏̊̇n̨̗̥̼̒̀̐͊͐̕͜͠ B̵̺̦̦̫̦͉̳̜͋̃̅̎͒̇̚͞͠ǫ͈̮̼͍̙̰̜̔̀͛̀̐͌͟͡͝t̶̴̨̡͓̰̩͈̖̺͖̙̝̩̞̎͐̀͑̋̋͂̏͢͟͠͠☆""")
+                ki4.sendText(msg.to,"""     􀜁􀇔􏿿􀜁􀇔􏿿 KEPIN BOT [KB] 􀜁􀇔􏿿􀜁􀇔􏿿  \n\n 􀜁􀇔􏿿 key Only Kicker 􀜁􀇔􏿿 \n\n􀜁􀇔􏿿[Kb4 in]\n􀜁􀇔􏿿[4name:]\n􀜁􀇔􏿿[B Cancel]\n􀜁􀇔􏿿[kick @]\n􀜁􀇔􏿿[Ban @]\n􀜁􀇔􏿿[kill]\n􀜁􀇔􏿿[BotChat]\n􀜁􀇔􏿿[Respons]\n􀜁􀇔􏿿[Kb4 Gift]\n􀜁􀇔􏿿[Kb4 bye]\n\n     ☆K̴̹̳̺̟̃̂͑̿͑̔͌͡ͅĕ̸̡̞͙̲̙̥̥͐̉̆̀v̨̧̛̛͎̺̭̬͈̠̙̉̾̀́͐̍͊̚͜į͉̹͕̳̹̙̙̽̽́̀̐̌̏̊̇n̨̗̥̼̒̀̐͊͐̕͜͠ B̵̺̦̦̫̦͉̳̜͋̃̅̎͒̇̚͞͠ǫ͈̮̼͍̙̰̜̔̀͛̀̐͌͟͡͝t̶̨͓̰̩̎͐̀͑̋̋͢͠☆""")
+                ki5.sendText(msg.to,"""     􀜁􀇔􏿿􀜁􀇔􏿿 KEPIN BOT [KB] 􀜁􀇔􏿿􀜁􀇔􏿿  \n\n 􀜁􀇔􏿿 key Only Kicker 􀜁􀇔􏿿 \n\n􀜁􀇔􏿿[Kb5 in]\n􀜁􀇔􏿿[5name:]\n􀜁􀇔􏿿[B Cancel]\n􀜁􀇔􏿿[kick @]\n􀜁􀇔􏿿[Ban @]\n􀜁􀇔􏿿[kill]\n􀜁􀇔􏿿[BotChat]\n􀜁􀇔􏿿[Respons]\n􀜁􀇔􏿿[Kb5 Gift]\n􀜁􀇔􏿿[Kb5 bye]\n\n    ☆K̴̹̳̺̟̃̂͑̿͑̔͌͡ͅĕ̸̡̞͙̲̙̥̥͐̉̆̀v̨̧̛̛͎̺̭̬͈̠̙̉̾̀́͐̍͊̚͜į͉̹͕̳̹̙̙̽̽́̀̐̌̏̊̇n̨̗̥̼̒̀̐͊͐̕͜͠ B̵̺̦̦̫̦͉̳̜͋̃̅̎͒̇̚͞͠ǫ͈̮̼͍̙̰̜̔̀͛̀̐͌͟͡͝t̶̨͓̰̩̎͐̀͑̋̋͢͠☆""")
+                ki6.sendText(msg.to,"""     􀜁􀇔􏿿􀜁􀇔􏿿 KEPIN BOT [KB] 􀜁􀇔􏿿􀜁􀇔􏿿  \n\n 􀜁􀇔􏿿 key Only Kicker 􀜁􀇔􏿿 \n\n􀜁􀇔􏿿[Kb6 in]\n􀜁􀇔􏿿[6name:]\n􀜁􀇔􏿿[B Cancel]\n􀜁􀇔􏿿[kick @]\n􀜁􀇔􏿿[Ban @]\n􀜁􀇔􏿿[kill]\n􀜁􀇔􏿿[BotChat]\n􀜁􀇔􏿿[Respons]\n􀜁􀇔􏿿[Kb6 Gift]\n􀜁􀇔􏿿[Kb6 bye]\n\n     ☆K̴̹̳̺̟̃̂͑̿͑̔͌͡ͅĕ̸̡̞͙̲̙̥̥͐̉̆̀v̨̧̛̛͎̺̭̬͈̠̙̉̾̀́͐̍͊̚͜į͉̹͕̳̹̙̙̽̽́̀̐̌̏̊̇n̨̗̥̼̒̀̐͊͐̕͜͠ B̵̺̦̦̫̦͉̳̜͋̃̅̎͒̇̚͞͠ǫ͈̮̼͍̙̰̜̔̀͛̀̐͌͟͡͝t̶̨͓̰̩̎͐̀͑̋̋͢͠""")
+
+#-----------------------------------------------
             elif msg.text in ["Kam","kam"]:
                 ginfo = cl.getGroup(msg.to)
                 cl.sendText(msg.to,"Selamat Datang Di Grup " + str(ginfo.name))
                 cl.sendText(msg.to,"Owner Grup " + str(ginfo.name) + " :\n" + ginfo.creator.displayName )
-
             elif "Gbc " in msg.text:
 	        print "[Group Broadcast Excuted]"
 	        bctxt = msg.text.replace("Gbc ","")
 		n = cl.getGroupIdsJoined()
-        	for people in n:
+		for people in n:
 		    cl.sendText(people, (bctxt))
 
 	    elif "Fbc " in msg.text:
@@ -2444,7 +2462,6 @@ def bot(op):
                     else:
                         G = ki.getGroup(op.param1)
 
-
                         ki.kickoutFromGroup(op.param1,[op.param2])
 
                         G.preventJoinByTicket = False
@@ -2461,7 +2478,6 @@ def bot(op):
                         cl.updateGroup(G)
                         ki.updateGroup(G)
                         wait["blacklist"][op.param2] = True
-
 
                 elif op.param3 in kimid:
                     if op.param2 in ki2mid:
@@ -2515,7 +2531,6 @@ def bot(op):
                     else:
                         G = cl.getGroup(op.param1)
 
-
                         ki2.kickoutFromGroup(op.param1,[op.param2])
 
                         G.preventJoinByTicket = False
@@ -2548,7 +2563,6 @@ def bot(op):
                         ki3.updateGroup(G)
                     else:
                         G = cl.getGroup(op.param1)
-
 
                         ki3.kickoutFromGroup(op.param1,[op.param2])
 
@@ -2583,7 +2597,6 @@ def bot(op):
                     else:
                         G = ki5.getGroup(op.param1)
 
-
                         ki5.kickoutFromGroup(op.param1,[op.param2])
 
                         G.preventJoinByTicket = False
@@ -2617,7 +2630,6 @@ def bot(op):
                     else:
                         G = ki4.getGroup(op.param1)
 
-
                         ki4.kickoutFromGroup(op.param1,[op.param2])
 
                         G.preventJoinByTicket = False
@@ -2650,7 +2662,6 @@ def bot(op):
                         ki5.updateGroup(G)
                     else:
                         G = ki5.getGroup(op.param1)
-
 
                         ki5.kickoutFromGroup(op.param1,[op.param2])
 
@@ -2806,34 +2817,34 @@ thread2 = threading.Thread(target=nameUpdate)
 thread2.daemon = True
 thread2.start()
 
-def autolike():
-     for zx in range(0,50):
-        hasil = cl.activity(limit=1000)
-        if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
-          try:
-	    cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-            cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by ✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω/̶T҉̶̘̟̼̉̈́͐͋͌̊✈\n\nhttp://line.me/ti/p/~")
-	    ki.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-            ki.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by ✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω̶T҉̶̘̟̼̉̈́͐͋͌̊✈\n\nhttp://line.me/ti/p/~")
-	    ki2.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-            ki2.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by ✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω̶T҉̶̘̟̼̉̈́͐͋͌̊✈\n\nhttp://line.me/ti/p/~")
-	    ki3.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-            ki3.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by ✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω̶T҉̶̘̟̼̉̈́͐͋͌̊✈\n\nhttp://line.me/ti/p/~")
-	    ki4.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-            ki4.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by ✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω̶T҉̶̘̟̼̉̈́͐͋͌̊✈\n\nhttp://line.me/ti/p/~")
-	    ki5.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-            ki5.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by ✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω̶T҉̶̘̟̼̉̈́͐͋͌̊✈\n\nhttp://line.me/ti/p/~")
-	    ki6.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-            ki6.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by ✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω̶T҉̶̘̟̼̉̈́͐͋͌̊✈\n\nhttp://line.me/ti/p/~")
-            print "Like"
-          except:
-            pass
-        else:
-            print "Already Liked"
-     time.sleep(600)
-thread2 = threading.Thread(target=autolike)
-thread2.daemon = True
-thread2.start()
+#def autolike():
+ #    for zx in range(0,50):
+  #      hasil = cl.activity(limit=1000)
+   #     if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
+    #      try:
+#	    cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+ #           cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by ✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω/̶T҉̶̘̟̼̉̈́͐͋͌̊✈\n\nhttp://line.me/ti/p/~")
+#	    ki.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+ #           ki.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by ✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω̶T҉̶̘̟̼̉̈́͐͋͌̊✈\n\nhttp://line.me/ti/p/~")
+#	    ki2.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+ #           ki2.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by ✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω̶T҉̶̘̟̼̉̈́͐͋͌̊✈\n\nhttp://line.me/ti/p/~")
+#	    ki3.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+ #           ki3.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by ✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω̶T҉̶̘̟̼̉̈́͐͋͌̊✈\n\nhttp://line.me/ti/p/~")
+#	    ki4.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+ #           ki4.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by ✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω̶T҉̶̘̟̼̉̈́͐͋͌̊✈\n\nhttp://line.me/ti/p/~")
+#	    ki5.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+ #           ki5.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by ✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω̶T҉̶̘̟̼̉̈́͐͋͌̊✈\n\nhttp://line.me/ti/p/~")
+#	    ki6.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+ #           ki6.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by ✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω̶T҉̶̘̟̼̉̈́͐͋͌̊✈\n\nhttp://line.me/ti/p/~")
+  #          print "Like"
+   #       except:
+    #        pass
+     #   else:
+      #      print "Already Liked"
+#     time.sleep(600)
+#thread2 = threading.Thread(target=autolike)
+#thread2.daemon = True
+#thread2.start()
 
 while True:
     try:
@@ -2845,3 +2856,21 @@ while True:
         if (Op.type != OpType.END_OF_OPERATION):
             cl.Poll.rev = max(cl.Poll.rev, Op.revision)
             bot(Op)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
