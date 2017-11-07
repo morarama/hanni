@@ -102,7 +102,7 @@ ki4mid = ki4.getProfile().mid
 ki5mid = ki5.getProfile().mid
 ki6mid = ki6.getProfile().mid
 Bots=[mid,kimid,ki2mid,ki3mid,ki4mid,ki5mid,ki6mid]
-admin = "u4f451941825df421ab9fe883c07b08d8"
+admin = ""
 
 wait = {
     'contact':False,
