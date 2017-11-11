@@ -1602,44 +1602,6 @@ def bot(op):
                     ki2.sendText(msg.to,mc)
                     ki3.sendText(msg.to,mc)
 
-
-            elif cms(msg.text, ["Lurking","lurking"]):
-                    if msg.to in wait['readPoint']:
-                        if wait["ROM"][msg.to].items() == []:
-                            chiya = ""
-                        else:
-                            chiya = ""
-                            for rom in wait["ROM"][msg.to].items():
-                                print rom
-                                chiya += rom[1] + "\n"
-
-                        cl.sendText(msg.to, "========HAI KANG NYIMAK========%s\n\nKamu tercyduk muehehehe👻👻👻👻\n[%s]" % (wait['readMember'][msg.to],setTime[msg.to]))
-                        print "ReadPoint Set..."
-                        try:
-                            del wait['readPoint'][msg.to]
-                            del wait['readMember'][msg.to]
-                        except:
-                            pass
-                        wait['readPoint'][msg.to] = msg.id
-                        wait['readMember'][msg.to] = ""
-                        wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-                        wait['ROM'][msg.to] = {}
-                        print wait
-                        cl.sendText(msg.to, "Kami telah memperbarui poin baca secara otomatis.")
-                    else:
-                        cl.sendText(msg.to, "Kami telah memperbarui poin baca secara otomatis.")
-                        print "ReadPoint Set..."
-                        try:
-                            del wait['readPoint'][msg.to]
-                            del wait['readMember'][msg.to]
-                        except:
-                            pass
-                        wait['readPoint'][msg.to] = msg.id
-                        wait['readMember'][msg.to] = ""
-                        wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-                        wait['ROM'][msg.to] = {}
-                        print wait
-                        cl.sendText(msg.to, "Kami telah memperbarui po
 #-----------------------------------------------------------
             elif "Ban @" in msg.text:
                 if msg.toType == 2:
