@@ -1882,7 +1882,7 @@ def bot(op):
                     targets.append(x["M"])
                 for target in targets:
                    try:
-                      cl.kickoutFromGroup(msg.to,[target])
+                      ki.kickoutFromGroup(msg.to,[target])
                    except:
                       pass
             elif msg.text.lower() == 'banlist':
