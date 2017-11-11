@@ -189,6 +189,50 @@ def bot(op):
                     pass
                 else:
                     cl.cancelGroupInvitation(op.param1, matched_list)
+
+        if op.type == 13:
+            if mid in op.param3:
+                if wait["autoJoin"] == True:
+                    cl.acceptGroupInvitation(op.param1)
+                    print "BOT 1 Joined"
+                    G = cl.getGroup(op.param1)
+                    G.preventJoinByTicket = False
+                    cl.updateGroup(G)
+                    Ticket = cl.reissueGroupTicket(op.param1)
+                    ki.acceptGroupInvitationByTicket(op.param1,Ticket)
+                    ki2.acceptGroupInvitationByTicket(op.param1,Ticket)
+                    ki3.acceptGroupInvitationByTicket(op.param1,Ticket)
+                    ki4.acceptGroupInvitationByTicket(op.param1,Ticket)
+                    ki5.acceptGroupInvitationByTicket(op.param1,Ticket)
+                    ki6.acceptGroupInvitationByTicket(op.param1,Ticket)
+                    ki7.acceptGroupInvitationByTicket(op.param1,Ticket)
+                    ki8.acceptGroupInvitationByTicket(op.param1,Ticket)
+                    ki9.acceptGroupInvitationByTicket(op.param1,Ticket)
+                    k1.acceptGroupInvitationByTicket(op.param1,Ticket)
+                    k2.acceptGroupInvitationByTicket(op.param1,Ticket)
+                    k3.acceptGroupInvitationByTicket(op.param1,Ticket)
+                    cl.sendText(op.param1, "進入成功.")
+                    G.preventJoinByTicket = True
+                    kn.updateGroup(G)
+                    print "all join"
+        else:
+                if cancelinvite["autoCancel"] == True:
+                    try:
+                        X = cl.getGroup(op.param1)
+                        gInviMids = [contact.mid for contact in X.invitee]
+                        cl.cancelGroupInvitation(op.param1, gInviMids)
+                        print gInviMids + "invite canceled"
+                    except:
+                        try:
+                            print "Retry canceling invitation"
+                            X = random.choice(KAC).getGroup(op.param1)
+                            gInviMids = [contact.mid for contact in X.invitee]
+                            random.choice(KAC).cancelGroupInvitation(op.param1, gInviMids)
+                            print gInviMids + "invite canceled"
+                        except:
+                            print "Bot can't cancel the invitation"
+                            pass
+
 # ----------------- NOTIFED MEMBER OUT GROUP
         if op.type == 15:
             if op.param2 in Bots:
@@ -2706,43 +2750,6 @@ def bot(op):
 		    random.choice(KAC).sendText(op.param1,"Welcome. Don't Play Bots. I can kick you!")
 	    else:
 		pass
-
-        if op.type == 13:
-            if mid in op.param3:
-                if wait["autoJoin"] == True:
-                    cl.acceptGroupInvitation(op.param1)
-                    print "BOT 1 Joined"
-                    G = cl.getGroup(op.param1)
-                    G.preventJoinByTicket = False
-                    cl.updateGroup(G)
-                    Ticket = cl.reissueGroupTicket(op.param1)
-                    ki.acceptGroupInvitationByTicket(op.param1,Ticket)
-                    ki2.acceptGroupInvitationByTicket(op.param1,Ticket)
-                    ki3.acceptGroupInvitationByTicket(op.param1,Ticket)
-                    ki4.acceptGroupInvitationByTicket(op.param1,Ticket)
-                    ki5.acceptGroupInvitationByTicket(op.param1,Ticket)
-                    ki6.acceptGroupInvitationByTicket(op.param1,Ticket)
-                    cl.sendText(op.param1, "進入成功.")
-                    G.preventJoinByTicket = True
-                    kn.updateGroup(G)
-                    print "all join"
-        else:
-                if cancelinvite["autoCancel"] == True:
-                    try:
-                        X = cl.getGroup(op.param1)
-                        gInviMids = [contact.mid for contact in X.invitee]
-                        cl.cancelGroupInvitation(op.param1, gInviMids)
-                        print gInviMids + "invite canceled"
-                    except:
-                        try:
-                            print "Retry canceling invitation"
-                            X = random.choice(KAC).getGroup(op.param1)
-                            gInviMids = [contact.mid for contact in X.invitee]
-                            random.choice(KAC).cancelGroupInvitation(op.param1, gInviMids)
-                            print gInviMids + "invite canceled"
-                        except:
-                            print "Bot can't cancel the invitation"
-                            pass
 
 	if op.type == 19:
 	    if op.param2 not in Bots:
