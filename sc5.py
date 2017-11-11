@@ -783,19 +783,6 @@ def bot(op):
                     profile.statusMessage = string
                     ki6.updateProfile(profile)
 
-                if msg.text == "Tes":
-                    sendMessage(msg.to, "I have set a read point ♪\n「tes」I will show you who I have read ♪")
-                    try:
-                        del wait['readPoint'][msg.to]
-                        del wait['readMember'][msg.to]
-                    except:
-                        pass
-                    wait['readPoint'][msg.to] = msg.id
-                    wait['readMember'][msg.to] = ""
-                    wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-                    wait['ROM'][msg.to] = {}
-                    print wait
-
             elif "Myname:" in msg.text:
                 string = msg.text.replace("Myname:","")
                 if len(string.decode('utf-8')) <= 60000000:
@@ -1652,9 +1639,7 @@ def bot(op):
                         wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
                         wait['ROM'][msg.to] = {}
                         print wait
-                        cl.sendText(msg.to, "Kami telah memperbarui poin baca secara otomatis.")
-
-
+                        cl.sendText(msg.to, "Kami telah memperbarui po
 #-----------------------------------------------------------
             elif "Ban @" in msg.text:
                 if msg.toType == 2:
@@ -2874,7 +2859,6 @@ def bot(op):
                     cl.sendText
             except:
                 pass
-
 
         if op.type == 59:
             print op
