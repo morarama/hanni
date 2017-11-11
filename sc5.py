@@ -101,7 +101,7 @@ ki4mid = ki4.getProfile().mid
 ki5mid = ki5.getProfile().mid
 ki6mid = ki6.getProfile().mid
 Bots=[mid,kimid,ki2mid,ki3mid,ki4mid,ki5mid,ki6mid]
-admin = ""
+admin = "u1f79109cea748c49fc7d18e9e942233a"
 
 wait = {
     'contact':False,
@@ -782,6 +782,20 @@ def bot(op):
                     profile = ki6.getProfile()
                     profile.statusMessage = string
                     ki6.updateProfile(profile)
+
+                if msg.text == "Tes":
+                    sendMessage(msg.to, "I have set a read point ♪\n「tes」I will show you who I have read ♪")
+                    try:
+                        del wait['readPoint'][msg.to]
+                        del wait['readMember'][msg.to]
+                    except:
+                        pass
+                    wait['readPoint'][msg.to] = msg.id
+                    wait['readMember'][msg.to] = ""
+                    wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+                    wait['ROM'][msg.to] = {}
+                    print wait
+
             elif "Myname:" in msg.text:
                 string = msg.text.replace("Myname:","")
                 if len(string.decode('utf-8')) <= 60000000:
@@ -1600,6 +1614,47 @@ def bot(op):
                     ki.sendText(msg.to,mc)
                     ki2.sendText(msg.to,mc)
                     ki3.sendText(msg.to,mc)
+
+
+            elif cms(msg.text, ["Lurking","lurking"]):
+                    if msg.to in wait['readPoint']:
+                        if wait["ROM"][msg.to].items() == []:
+                            chiya = ""
+                        else:
+                            chiya = ""
+                            for rom in wait["ROM"][msg.to].items():
+                                print rom
+                                chiya += rom[1] + "\n"
+
+                        cl.sendText(msg.to, "========HAI KANG NYIMAK========%s\n\nKamu tercyduk muehehehe👻👻👻👻\n[%s]" % (wait['readMember'][msg.to],setTime[msg.to]))
+                        print "ReadPoint Set..."
+                        try:
+                            del wait['readPoint'][msg.to]
+                            del wait['readMember'][msg.to]
+                        except:
+                            pass
+                        wait['readPoint'][msg.to] = msg.id
+                        wait['readMember'][msg.to] = ""
+                        wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+                        wait['ROM'][msg.to] = {}
+                        print wait
+                        cl.sendText(msg.to, "Kami telah memperbarui poin baca secara otomatis.")
+                    else:
+                        cl.sendText(msg.to, "Kami telah memperbarui poin baca secara otomatis.")
+                        print "ReadPoint Set..."
+                        try:
+                            del wait['readPoint'][msg.to]
+                            del wait['readMember'][msg.to]
+                        except:
+                            pass
+                        wait['readPoint'][msg.to] = msg.id
+                        wait['readMember'][msg.to] = ""
+                        wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+                        wait['ROM'][msg.to] = {}
+                        print wait
+                        cl.sendText(msg.to, "Kami telah memperbarui poin baca secara otomatis.")
+
+
 #-----------------------------------------------------------
             elif "Ban @" in msg.text:
                 if msg.toType == 2:
