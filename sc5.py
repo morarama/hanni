@@ -205,12 +205,6 @@ def bot(op):
                     ki4.acceptGroupInvitationByTicket(op.param1,Ticket)
                     ki5.acceptGroupInvitationByTicket(op.param1,Ticket)
                     ki6.acceptGroupInvitationByTicket(op.param1,Ticket)
-                    ki7.acceptGroupInvitationByTicket(op.param1,Ticket)
-                    ki8.acceptGroupInvitationByTicket(op.param1,Ticket)
-                    ki9.acceptGroupInvitationByTicket(op.param1,Ticket)
-                    k1.acceptGroupInvitationByTicket(op.param1,Ticket)
-                    k2.acceptGroupInvitationByTicket(op.param1,Ticket)
-                    k3.acceptGroupInvitationByTicket(op.param1,Ticket)
                     cl.sendText(op.param1, "進入成功.")
                     G.preventJoinByTicket = True
                     kn.updateGroup(G)
