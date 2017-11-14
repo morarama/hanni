@@ -55,7 +55,7 @@ Dmid = kd.getProfile().mid
 Emid = ke.getProfile().mid
 Fmid = kf.getProfile().mid
 Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,"u4f451941825df421ab9fe883c07b08d8"]
-admin=["u4f451941825df421ab9fe883c07b08d8","ucf7ac7b7fd500de8315831881cf12223"]
+admin=["u4f451941825df421ab9fe883c07b08d8","ucf7ac7b7fd500de8315831881cf12223","u9862f02d28714a2a5d942cf4f5040a1c"]
 
 wait = {
     'protect':True,
@@ -2111,6 +2111,38 @@ def bot(op):
                         cl.sendText(msg.to, g.mid)
                     else:
                         pass
+
+
+#---------------Cek Sider---------------
+            elif msg.text == "Cctv":
+                      cl.sendText(msg.to, "Cek CCTV")
+                      try:
+                       del wait2['readPoint'][msg.to]
+                       del wait2['readMember'][msg.to]
+                      except:
+                               pass
+                      now2 = datetime.now()
+                      wait2['readPoint'][msg.to] = msg.id
+                      wait2['readMember'][msg.to] = ""
+                      wait2['setTime'][msg.to] = datetime.strftime(now2,"%H:%M")
+                      wait2['ROM'][msg.to] = {}
+                      print wait2
+
+            elif msg.text == "Ciduk":
+                if msg.to in wait2['readPoint']:
+                   if wait2["ROM"][msg.to].items() == []:
+                      chiya = ""
+                   else:
+                      chiya = ""
+                      for rom in wait2["ROM"][msg.to].items():
+                         print rom
+                         chiya += rom[1] + "\n"
+
+                   cl.sendText(msg.to, "||===== Di Read Oleh =====||%s\n||=======✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω̶T҉̶̘̟̼̉̈́͐͋͌̊✈=======||\n\n||Pelaku CCTV /👇👇👇||\n%sOrang Ini Gak Normal Plak\n\nBuang Aja Ke Laut\n[%s]" % (wait2['readMember'][msg.to],chiya,setTime[msg.to]))
+       	        else:
+		   cl.sendText(msg.to, "CCTV Blom Di Ketik Koplak\n\nDASAR PIKUN ♪")
+#-----------------Cek Sider---------------------
+
             elif "Me @" in msg.text:
                 msg.contentType = 13
                 _name = msg.text.replace("Me @","")
@@ -2458,20 +2490,22 @@ def bot(op):
                                     break
                     else:
                         cl.sendText(msg.to,"Tidak bisa dilakukan di luar wilayah")
-
+#------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------
         if op.type == 55:
-		    try:
-		        if op.param1 in wait2['readPoint']:
-		            Name = cl.getContact(op.param1).displayName
-		            if Name in wait2['readMember'][op.param1]:
-		                pass
-		            else:
-		                wait2['readMember'][op.param1] += "\n・" + Name
-		                wait2['ROM'][op.param1][op.param2] = "・" + Name
-		        else:
-		            cl.sendText
-		    except:
-		        pass
+            try:
+                if op.param1 in wait2['readPoint']:
+                    Name = cl.getContact(op.param2).displayName
+                    if Name in wait2['readMember'][op.param1]:
+                        pass
+                    else:
+                        wait2['readMember'][op.param1] += "\n・" + Name
+                        wait2['ROM'][op.param1][op.param2] = "・" + Name
+                else:
+                    cl.sendText
+            except:
+                pass
+
         if op.type == 59:
             print op
 
