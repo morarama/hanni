@@ -5,38 +5,38 @@ from datetime import datetime
 import time,random,sys,json,codecs,threading,glob,re
 
 cl = LINETCR.LINE()
-cl.login(token="EmXdTxLztI2i7HJrOEga.h3KqNoP0JeN8FrJP6uiJoG.JUnY5thI0O7mTrNL/8tv6g8dHTbDE2Kyw2c+E9nmxHc=")
+cl.login(token="EmqyfGRzG8shyaxxyxva.h3KqNoP0JeN8FrJP6uiJoG.65n8x0QhvQulMeOArHx3qyz52in9QZbKWiCG2tE+Tvk=")
 cl.loginResult()
 
 ki = LINETCR.LINE()
-ki.login(token="EmDlhqNRLRRAi0HEpmh8.DTbDh/XY1svG6guOLGgrEa.Ydo43kzZN8kI/OZF9LyIRenjd4GUtRKxnUhX4fC0Ey4=")
+ki.login(token="EmwnVm7w7q6NlRziTL3d.cwB+CDbraDzJDa9X1PRpxq.GzQZOQbUdJHQyru23nhTyM52/ycsmG+rg9q1kfjah2I=")
 ki.loginResult()
 
 kk = LINETCR.LINE()
-kk.login(token="Emx20AVISjN3EZhmo3g2.KpKWyorTPY1wwWUHFd03OG.qbSNaGSy4vS4thqaW0TkMEiL5rg7+4ty0Nabaf+kAuY=")
+kk.login(token="EmcdGcr39siPjyfjUHU8.DTbDh/XY1svG6guOLGgrEa.J9aK10nBHHPamoTrpNycY3jwIpaokHSUe4DKrMyCblM=")
 kk.loginResult()
 
 kc = LINETCR.LINE()
-kc.login(token="EmzHHwxBv1qrRfwsbAhd.cwB+CDbraDzJDa9X1PRpxq.hE9zaXPXVTyFK6YvfCp93ZI8xltR00RG4akcx5b9cmU=")
+kc.login(token="EmKkIYjfelsmgNiXTIh2.KpKWyorTPY1wwWUHFd03OG.yUrwPRkpJqbiZ1tohkh7+SpX1TWpUP+/RVUdTkhEgAg=")
 kc.loginResult()
 
 kd = LINETCR.LINE()
-kd.login(token="EmK7C1N4fMiFD6Cwfa7f.7I8ZPERZDnDxt4+rBdMTlW.+GGqK0py/1CW7+CBTRl8urJLHFmCm8A6wp9tRxeZraA=")
+kd.login(token="EmllAMjlbuZXcuGB3Icf.7I8ZPERZDnDxt4+rBdMTlW.as/wQesc1IqyojkUIln11tZZBZ26qIpFEb0mINH9ud8=")
 kd.loginResult()
 
 ke = LINETCR.LINE()
-ke.login(token="Em5etGvJ323WYeezDxM3.x29XInczKFNk/xybxHWLaW.RWaELafJ21QtapiGN/ubhu+XS8Sx6JQPMwt7FSSKklY=")
+ke.login(token="EmabC3fOGOWwmEygtp13.x29XInczKFNk/xybxHWLaW.thsEmz8zYjLz9BgPilr6+jNr/yWRzZssIwWxluictW4=")
 ke.loginResult()
 
 kf = LINETCR.LINE()
-kf.login(token="EmMfHzNaHDHiKX7nEOva.EZrmTlyikc+xw1PbTxMkMG.Nq7fEGYbgchLlVhSPsNU7d39UpXBDgKBjBG6e1uCy6I=")
+kf.login(token="EmV3Z7jQ9Wg9FZWwPs1a.EZrmTlyikc+xw1PbTxMkMG.ad92k8jIFR2mSsvn6MzMeJBEPpWY6xdlVCAVPUD9bIo=")
 kf.loginResult()
 
 print "login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-helpMessage =""" Keyword BOT
+helpMessage =""" Keyword BOT ✍👉Shandy😈
 
 |=*=Key Member=*=|
 |=>Help
@@ -55,7 +55,8 @@ Dmid = kd.getProfile().mid
 Emid = ke.getProfile().mid
 Fmid = kf.getProfile().mid
 Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,"u4f451941825df421ab9fe883c07b08d8"]
-admin=["u4f451941825df421ab9fe883c07b08d8"]
+admin=["u4f451941825df421ab9fe883c07b08d8","ucf7ac7b7fd500de8315831881cf12223"]
+
 wait = {
     'protect':True,
     'protectinv':True,
