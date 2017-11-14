@@ -1362,6 +1362,7 @@ def bot(op):
                     else:
                         cl.sendText(msg.to,"è¦äº†å…³æ–­ã€‚")
             elif msg.text in ["Set"]:
+              if msg.from_ in admin:
                 md = ""
                 if wait["protect"] == True: md+=" Protect : on\n"
                 else: md+=" Protect : off\n"
@@ -1646,6 +1647,7 @@ def bot(op):
 #-----------------------------------------------
 
             elif msg.text in ["All join","all join","Reina"]:
+              if msg.from_ in admin:
                         G = cl.getGroup(msg.to)
                         ginfo = cl.getGroup(msg.to)
                         G.preventJoinByTicket = False
@@ -1831,6 +1833,7 @@ def bot(op):
                                     kk.sendText(msg.to,"Masih Mauko Bangsat!!!")
                                     print "SUKSES -- NK TARGET"
             elif "Blacklist @ " in msg.text:
+              if msg.from_ in admin:
                 _name = msg.text.replace("Blacklist @ ","")
                 _kicktarget = _name.rstrip(' ')
                 gs = ki.getGroup(msg.to)
@@ -1929,6 +1932,7 @@ def bot(op):
 #-----------------------------------------------
 
             elif msg.text in ["Respon","respon","absen","Absen"]:
+              if msg.from_ in admin:
                 print "EXCUTED -- ABSEN BOT"
                 cl.sendText(msg.to,"Hadir")
                 ki.sendText(msg.to,"Hadir")
@@ -1942,6 +1946,7 @@ def bot(op):
 #-----------------------------------------------
 
             elif msg.text in ["Sp","Speed","speed"]:
+              if msg.from_ in admin:
                 start = time.time()
                 cl.sendText(msg.to, "Progress...")
                 elapsed_time = time.time() - start
@@ -2115,6 +2120,7 @@ def bot(op):
 
 #---------------Cek Sider---------------
             elif msg.text == "Cctv":
+              if msg.from_ in admin:
                       cl.sendText(msg.to, "Cek CCTV")
                       try:
                        del wait2['readPoint'][msg.to]
@@ -2129,6 +2135,7 @@ def bot(op):
                       print wait2
 
             elif msg.text == "Ciduk":
+              if msg.from_ in admin:
                 if msg.to in wait2['readPoint']:
                    if wait2["ROM"][msg.to].items() == []:
                       chiya = ""
@@ -2144,6 +2151,7 @@ def bot(op):
 #-----------------Cek Sider---------------------
 
             elif "Me @" in msg.text:
+              if msg.from_ in admin:
                 msg.contentType = 13
                 _name = msg.text.replace("Me @","")
                 _nametarget = _name.rstrip(' ')
@@ -2155,6 +2163,7 @@ def bot(op):
                     else:
                         pass
             elif "Mid:" in msg.text:
+              if msg.from_ in admin:
                    midd = eval(msg.contentMetadata["MENTION"])
                    key1 = midd["MENTIONEES"][0]["M"]
                    cl.sendText(msg.to,"mid:"+key1)
@@ -2186,6 +2195,7 @@ def bot(op):
                    except:
                       pass
             elif msg.text in ["Summon"]:
+              if msg.from_ in admin:
                 group = cl.getGroup(msg.to)
                 nama = [contact.mid for contact in group.members]
                 cb = ""
