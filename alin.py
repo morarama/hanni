@@ -214,31 +214,31 @@ def bot(op):
                 else:
                     cl.cancelGroupInvitation(op.param1, matched_list)
 
-        #if op.type == 15:
-        #    group = cl.getGroup(op.param1)
-        #    cb = Message()
-        #    cb.to = op.param1
-        #    cb.text = cl.getContact(op.param2).displayName + " Mau Kemana Sayang " + group.name
-        #    cl.sendMessage(cb)
+        if op.type == 15:
+            group = cl.getGroup(op.param1)
+            cb = Message()
+            cb.to = op.param1
+            cb.text = cl.getContact(op.param2).displayName + " Mau Kemana Sayang " + group.name
+            cl.sendMessage(cb)
 
-        #if op.type == 15:
-        #    if op.param2 in Bots:
-        #        return
-        #    random.choice(KAC).sendText(op.param1, "Good Bye\n(*´･ω･*)")
-        #    print "MEMBER HAS LEFT THE GROUP"
+        if op.type == 15:
+            if op.param2 in Bots:
+                return
+            random.choice(KAC).sendText(op.param1, "Good Bye\n(*´･ω･*)")
+            print "MEMBER HAS LEFT THE GROUP"
 
-        #if op.type == 17:
-        #    if op.param2 in Bots:
-        #        return
-        #    random.choice(KAC).sendText(op.param1, "Welcome\n(*´･ω･*)")
-        #    print "MEMBER HAS JOIN THE GROUP"
+        if op.type == 17:
+            if op.param2 in Bots:
+                return
+            random.choice(KAC).sendText(op.param1, "Welcome\n(*´･ω･*)")
+            print "MEMBER HAS JOIN THE GROUP"
 
-        #if op.type == 17:
-        #    group = cl.getGroup(op.param1)
-        #    cb = Message()
-        #    cb.to = op.param1
-        #    cb.text = cl.getContact(op.param2).displayName + " Selamat Datang di " + group.name
-        #    cl.sendMessage(cb)
+        if op.type == 17:
+            group = cl.getGroup(op.param1)
+            cb = Message()
+            cb.to = op.param1
+            cb.text = cl.getContact(op.param2).displayName + " Selamat Datang di " + group.name
+            cl.sendMessage(cb)
 
         if op.type == 11:
             if wait["protectqr"] == True:
@@ -2146,7 +2146,7 @@ def bot(op):
                          print rom
                          chiya += rom[1] + "\n"
 
-                   cl.sendText(msg.to, "||===== Di Read Oleh =====||%s\n||=======✍T҉̶̘̟̼̉̈́͐͋͌̊Σ̶Δ̶M҉̶̘͈̺̪͓̺ͩ͂̾ͪ̀̋ ̶̶̶D̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎S̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎T̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎O̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎Y̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎E̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎͎R̶̶꙯꙯꙰꙰͎͎͎͎͎͎͎͎͎͎͎͎͎͎Sβ̶Ω̶T҉̶̘̟̼̉̈́͐͋͌̊✈=======||\n\n||Pelaku CCTV /👇👇👇||\n%sOrang Ini Gak Normal Plak\n\nBuang Aja Ke Laut\n[%s]" % (wait2['readMember'][msg.to],chiya,setTime[msg.to]))
+                   cl.sendText(msg.to, "||===== Di Read Oleh =====||%s\n||👉Shandy bot😈||\n\n||Pelaku CCTV /👇👇👇||\n%sOrang Ini Gak Normal Plak\n\nBuang Aja Ke Laut\n[%s]" % (wait2['readMember'][msg.to],chiya,setTime[msg.to]))
        	        else:
 		   cl.sendText(msg.to, "CCTV Blom Di Ketik Koplak\n\nDASAR PIKUN ♪")
 #-----------------Cek Sider---------------------
