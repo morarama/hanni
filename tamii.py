@@ -7,11 +7,11 @@ from bs4 import BeautifulSoup
 import time, random, sys, re, os, json, subprocess, threading, string, codecs, requests, tweepy, ctypes, urllib, urllib2, wikipedia
 
 cl = LINETCR.LINE()
-cl.login(token="EmqyfGRzG8shyaxxyxva.h3KqNoP0JeN8FrJP6uiJoG.65n8x0QhvQulMeOArHx3qyz52in9QZbKWiCG2tE+Tvk=")
+cl.login(token="Em1MLKWf2rYhXqF6Izb8.t0uzqyjD9cgRN/IdWhSi2a.MJJqIhbXAZuk9CL7DbotNLpfdAAXj5daZgF5RNGTLu4=")
 cl.loginResult()
 
 ki = LINETCR.LINE()
-ki.login(token="EmwnVm7w7q6NlRziTL3d.cwB+CDbraDzJDa9X1PRpxq.GzQZOQbUdJHQyru23nhTyM52/ycsmG+rg9q1kfjah2I=")
+ki.login(token="EmqyfGRzG8shyaxxyxva.h3KqNoP0JeN8FrJP6uiJoG.65n8x0QhvQulMeOArHx3qyz52in9QZbKWiCG2tE+Tvk=")
 ki.loginResult()
 
 kk = LINETCR.LINE()
@@ -35,52 +35,52 @@ kf.login(token="EmV3Z7jQ9Wg9FZWwPs1a.EZrmTlyikc+xw1PbTxMkMG.ad92k8jIFR2mSsvn6MzM
 kf.loginResult()
 
 kg = LINETCR.LINE()
-kg.login(token="Eme45nZDSATx9C6vYxRa.M5S4YxDWvhoYOasbMPWroG.Tq/iSCV68m9567XK4xxEGSXOAOVJEPwNW+odUm/BwT4=")
+kg.login(token="EmwnVm7w7q6NlRziTL3d.cwB+CDbraDzJDa9X1PRpxq.GzQZOQbUdJHQyru23nhTyM52/ycsmG+rg9q1kfjah2I=")
 kg.loginResult()
 
-kh = LINETCR.LINE()
-kh.login(token="EmIRhD60WnHD3t4FET34.9gH7ABV+xQLJo9i7SbFX5a.Yr0Yii0G3ouW7kOEMdXrPongIIs0Q2ab9Q0xUiRLfHI=")
-kh.loginResult()
+#kh = LINETCR.LINE()
+#kh.login(token="EmIRhD60WnHD3t4FET34.9gH7ABV+xQLJo9i7SbFX5a.Yr0Yii0G3ouW7kOEMdXrPongIIs0Q2ab9Q0xUiRLfHI=")
+#kh.loginResult()
 
-kj = LINETCR.LINE()
-kj.login(token="EmLppwNR3nIRHTOtPilb.8udcfgLi7ehlJbE2o+xCkW.QzwPU+t85FDCd/TcU0H5NdPq0MUzuCXRzaZPRp1O/mY=")
-kj.loginResult()
+#kj = LINETCR.LINE()
+#kj.login(token="EmLppwNR3nIRHTOtPilb.8udcfgLi7ehlJbE2o+xCkW.QzwPU+t85FDCd/TcU0H5NdPq0MUzuCXRzaZPRp1O/mY=")
+#kj.loginResult()
 
-kl = LINETCR.LINE()
-kl.login(token="EmYDhAhUQqmCaUB8SZA4.XzkQX6Z6SKas/aWEdxhG9a.HTgYRulRHxXSc+72zLVfT2VLIRVZvh4ImQvEtU6KxBg=")
-kl.loginResult()
+#kl = LINETCR.LINE()
+#kl.login(token="EmYDhAhUQqmCaUB8SZA4.XzkQX6Z6SKas/aWEdxhG9a.HTgYRulRHxXSc+72zLVfT2VLIRVZvh4ImQvEtU6KxBg=")
+#kl.loginResult()
 
-km = LINETCR.LINE()
-km.login(token="EmCXaH6hkxN7L4iWpyGa.M18YOGKVCrQRdiHWLocYoG.Bga5dUzA36+J0GekTRX7Sz5R9vrUWYaxXn7rGrXUPBc=")
-km.loginResult()
+#km = LINETCR.LINE()
+#km.login(token="EmCXaH6hkxN7L4iWpyGa.M18YOGKVCrQRdiHWLocYoG.Bga5dUzA36+J0GekTRX7Sz5R9vrUWYaxXn7rGrXUPBc=")
+#km.loginResult()
 
-kn = LINETCR.LINE()
-kn.login(token="EmjOueAJz9I4iNjWUPm0.xk6CFUa1TffEm+BFjYuhCa.pk6HGOsm6rlBtQLo4D48hQAaLUBlOgUJx0qGfVEpyc8=")
-kn.loginResult()
+#kn = LINETCR.LINE()
+#kn.login(token="EmjOueAJz9I4iNjWUPm0.xk6CFUa1TffEm+BFjYuhCa.pk6HGOsm6rlBtQLo4D48hQAaLUBlOgUJx0qGfVEpyc8=")
+#kn.loginResult()
 
-ko = LINETCR.LINE()
-ko.login(token="Em44M0djUhjilmwO5eW4.gNyro7TbVPOq9q7KfxZ6ja.fD1FXX13tI04xIuOkhGBE5+F3sywEuweexo1C/GxJ1U=")
-ko.loginResult()
+#ko = LINETCR.LINE()
+#ko.login(token="Em44M0djUhjilmwO5eW4.gNyro7TbVPOq9q7KfxZ6ja.fD1FXX13tI04xIuOkhGBE5+F3sywEuweexo1C/GxJ1U=")
+#ko.loginResult()
 
-kp = LINETCR.LINE()
-kp.login(token="Emm6NUELDiThHb11mo63.beFYyPfuxT1XkkxB0z7bOW.iKoovhLczCH/Pd0VtVxhYA/x5NpywVyBiceIZwcxI2s=")
-kp.loginResult()
+#kp = LINETCR.LINE()
+#kp.login(token="Emm6NUELDiThHb11mo63.beFYyPfuxT1XkkxB0z7bOW.iKoovhLczCH/Pd0VtVxhYA/x5NpywVyBiceIZwcxI2s=")
+#kp.loginResult()
 
-kq = LINETCR.LINE()
-kq.login(token="EmTyM8gXpOZkJwy0hnK3.Zcwf6HrGpji9sCc98VTOeW.suZo5gb/3FZ2hEFhe2+t+gomNdr1GnH0566EGnElV58=")
-kq.loginResult()
+#kq = LINETCR.LINE()
+#kq.login(token="EmTyM8gXpOZkJwy0hnK3.Zcwf6HrGpji9sCc98VTOeW.suZo5gb/3FZ2hEFhe2+t+gomNdr1GnH0566EGnElV58=")
+#kq.loginResult()
 
-kr = LINETCR.LINE()
-kr.login(token="Emaas45PFxDMQU2svLIa.r5CTm/T+B9J2h3ZXLAhq6G.od8/LyM8B5Luv7HiYiew3n0zS1uLfsyqd5Nja1SeApM=")
-kr.loginResult()
+#kr = LINETCR.LINE()
+#kr.login(token="Emaas45PFxDMQU2svLIa.r5CTm/T+B9J2h3ZXLAhq6G.od8/LyM8B5Luv7HiYiew3n0zS1uLfsyqd5Nja1SeApM=")
+#kr.loginResult()
 
-ks = LINETCR.LINE()
-ks.login(token="Emwfi9Mdukz6QroWpHQ7.bHov9ONJEzx2Ya/PwMshPW.0DaYTC4xiCU3AaklyQNCVxoRowvu47htNMQNGM/Jpo8=")
-ks.loginResult()
+#ks = LINETCR.LINE()
+#ks.login(token="Emwfi9Mdukz6QroWpHQ7.bHov9ONJEzx2Ya/PwMshPW.0DaYTC4xiCU3AaklyQNCVxoRowvu47htNMQNGM/Jpo8=")
+#ks.loginResult()
 
-kt = LINETCR.LINE()
-kt.login(token="EmLX3yrZguae6q822s49.HKYa3NeUc1iHvq5GaRXJgq.yAuKmCAeoHK8R/5p65i8x1N8Ek1an6ywPurnBBEq/jQ=")
-kt.loginResult()
+#kt = LINETCR.LINE()
+#kt.login(token="EmLX3yrZguae6q822s49.HKYa3NeUc1iHvq5GaRXJgq.yAuKmCAeoHK8R/5p65i8x1N8Ek1an6ywPurnBBEq/jQ=")
+#kt.loginResult()
 
 print "Tamii Bot"
 reload(sys)
@@ -126,7 +126,7 @@ helpMessage ="""
 ��✒ Gurl
 ��✒ Glist
 ��✒ Say
-��✒ Set
+��✒ Setting
 ��✒ Gcancel: number
 ��✒ Masuk / Join
 ��✒ Sayang
@@ -192,7 +192,7 @@ helpMessage ="""
 
 ��✒ C͍͇̪̲͎̯͎̫̩̽̅̈́̅̌́̍̐ŗ̛͔̳͔̦́̋͛̎e̶̮̳͕͍̺̼̱͎͛̃̾̍̑̐ǻ͕͍̻̭̟̪͒́́̎̕͘̕͟t̢̠̻̗̠͙̦͒̉̈̎͂̐͒͑o̸̡̲̜̯̤͚̠̬͊̓̌̄̒͠r̵̺̲̗̩͙̐̇̾̐͐̏̃̓́̊ B̝̪̭͓͍̺͐͂̑̅̓͗͗̈́͢y͚͔̝͖̮̤͚̅̉̑̐̓̀̋̊͂͜͜͢͞:̶̨̻̪͓̦̻̋̾̂̽̎͘͜͜ Ţ̸̡̫̙͎̰̜͎͚̎̀͗̌̏͛͌͜a̛̛̪̱̳͉͚̹̣̦̼͒͗͆̿͋͡͠m̰̬͇̭̔̓́̓͢͞ĩ̡̢̥̰̤̗̩̥̥̫́̐̔̾̾͂̚͠͝i̴͙̦̹̫̾̈̿̈́̊̃̆͒͜͢͞ ��✒•┅───── """
 
-KAC=[cl,ki,kk,kc,kd,ke,kf,kg,kh,kj,kl,km,kn,ko,kp,kq,kr,ks,kt]
+KAC=[cl,ki,kk,kc,kd,ke,kf,kg]
 mid = cl.getProfile().mid
 Amid = ki.getProfile().mid
 Bmid = kk.getProfile().mid
@@ -201,17 +201,17 @@ Dmid = kd.getProfile().mid
 Emid = ke.getProfile().mid
 Fmid = kf.getProfile().mid
 Gmid = kg.getProfile().mid
-Hmid = kh.getProfile().mid
-Jmid = kj.getProfile().mid
-Lmid = kl.getProfile().mid
-Mmid = km.getProfile().mid
-Nmid = kn.getProfile().mid
-Omid = ko.getProfile().mid
-Pmid = kp.getProfile().mid
-Qmid = kq.getProfile().mid
-Rmid = kr.getProfile().mid
-Smid = ks.getProfile().mid
-Tmid = kt.getProfile().mid
+#Hmid = kh.getProfile().mid
+#Jmid = kj.getProfile().mid
+#Lmid = kl.getProfile().mid
+#Mmid = km.getProfile().mid
+#Nmid = kn.getProfile().mid
+#Omid = ko.getProfile().mid
+#Pmid = kp.getProfile().mid
+#Qmid = kq.getProfile().mid
+##Rmid = kr.getProfile().mid
+#Smid = ks.getProfile().mid
+#Tmid = kt.getProfile().mid
 protectname = []
 protecturl = []
 protection = []
@@ -219,9 +219,10 @@ autocancel = {}
 autoinvite = []
 autoleaveroom = []
 targets = []
-Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Jmid,Lmid,Mmid,Nmid,Omid,Pmid,Qmid,Rmid,Smid,Tmid]
-admin = ["ub736c5b1794f5aa30026d162d07ce5e6",mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Jmid,Lmid,Mmid,Nmid,Omid,Pmid,Qmid,Rmid,Smid,Tmid]
-owner = ["ub736c5b1794f5aa30026d162d07ce5e6",mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Jmid,Lmid,Mmid,Nmid,Omid,Pmid,Qmid,Rmid,Smid,Tmid]
+Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid]
+admin = ["u1f79109cea748c49fc7d18e9e942233a",mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid]
+owner = ["u1f79109cea748c49fc7d18e9e942233a",mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid]
+
 wait = {
     'contact':False,
     'autoJoin':False,
@@ -252,6 +253,7 @@ wait = {
     "pname":{},
     "pro_name":{},
     }
+
 wait2 = {
     'readPoint':{},
     'readMember':{},
@@ -323,71 +325,71 @@ backup.displayName = contact.displayName
 backup.statusMessage = contact.statusMessage
 backup.pictureStatus = contact.pictureStatus
 
-contact = kh.getProfile()
-backup = kh.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
+#contact = kh.getProfile()
+#backup = kh.getProfile()
+#backup.displayName = contact.displayName
+#backup.statusMessage = contact.statusMessage
+#backup.pictureStatus = contact.pictureStatus
 
-contact = kj.getProfile()
-backup = kj.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
+#contact = kj.getProfile()
+#backup = kj.getProfile()
+#backup.displayName = contact.displayName
+#backup.statusMessage = contact.statusMessage
+#backup.pictureStatus = contact.pictureStatus
 
-contact = kl.getProfile()
-backup = kl.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
+#contact = kl.getProfile()
+#backup = kl.getProfile()
+#backup.displayName = contact.displayName
+#backup.statusMessage = contact.statusMessage
+#backup.pictureStatus = contact.pictureStatus
 
-contact = km.getProfile()
-backup = km.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
+#contact = km.getProfile()
+#backup = km.getProfile()
+#backup.displayName = contact.displayName
+#backup.statusMessage = contact.statusMessage
+#backup.pictureStatus = contact.pictureStatus
 
-contact = kn.getProfile()
-backup = kn.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
+#contact = kn.getProfile()
+#backup = kn.getProfile()
+#backup.displayName = contact.displayName
+#backup.statusMessage = contact.statusMessage
+#backup.pictureStatus = contact.pictureStatus
 
-contact = ko.getProfile()
-backup = ko.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
+#contact = ko.getProfile()
+#backup = ko.getProfile()
+#backup.displayName = contact.displayName
+#backup.statusMessage = contact.statusMessage
+#backup.pictureStatus = contact.pictureStatus
 
-contact = kp.getProfile()
-backup = kp.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
+#contact = kp.getProfile()
+#backup = kp.getProfile()
+#backup.displayName = contact.displayName
+#backup.statusMessage = contact.statusMessage
+#backup.pictureStatus = contact.pictureStatus
 
-contact = kq.getProfile()
-backup = kq.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
+#contact = kq.getProfile()
+#backup = kq.getProfile()
+#backup.displayName = contact.displayName
+#backup.statusMessage = contact.statusMessage
+#backup.pictureStatus = contact.pictureStatus
 
-contact = kr.getProfile()
-backup = kr.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
+#contact = kr.getProfile()
+#backup = kr.getProfile()
+#backup.displayName = contact.displayName
+#backup.statusMessage = contact.statusMessage
+#backup.pictureStatus = contact.pictureStatus
 
-contact = ks.getProfile()
-backup = ks.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
+#contact = ks.getProfile()
+#backup = ks.getProfile()
+#backup.displayName = contact.displayName
+#backup.statusMessage = contact.statusMessage
+#backup.pictureStatus = contact.pictureStatus
 
-contact = kt.getProfile()
-backup = kt.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
+#contact = kt.getProfile()
+#backup = kt.getProfile()
+#backup.displayName = contact.displayName
+#backup.statusMessage = contact.statusMessage
+#backup.pictureStatus = contact.pictureStatus
 
 
 def upload_tempimage(client):
@@ -3287,12 +3289,9 @@ def bot(op):
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Already。")
 
-
-            elif msg.text in ["Set"]:
-            	print "Setting pick up..."
-                md = "[☸]�� SETTING ADMIN ONLY ��[☸]\n"
-                
-                
+            elif msg.text in ["Setting"]:
+              if msg.from_ in admin:
+                md = ""
                 if wait["likeOn"] == True: md+="��Auto like : on\n"
                 else:md+="��Auto like : off\n"
                 if wait["copy"] == True: md+="��Mimic : on\n"
@@ -3324,6 +3323,11 @@ def bot(op):
                 if wait["protectionOn"] == True: md+="��Protection : on\n\n"+ datetime.today().strftime('%H:%M:%S')
                 else:md+="��Protection : off\n\n"+ datetime.today().strftime('%H:%M:%S')
                 cl.sendText(msg.to,md)
+
+
+
+
+
 #========================================
 #------------------------------------------------
             elif msg.text in ["Gcreator:inv"]:
