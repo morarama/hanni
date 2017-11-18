@@ -957,8 +957,9 @@ def bot(op):
                     klist=[ki,kk,kc,kd,ke,kf,kg,kh,kj,kn,ko,kp,kq,kr,ks,kt]
                     kicker = random.choice(klist)
                     G = kicker.getGroup(op.param1)
-                    kicker.kickoutFromGroup(op.param1,[op.param2])
                     G.preventJoinByTicket = True
+                    kicker.updateGroup(G)
+                    kicker.kickoutFromGroup(op.param1,[op.param2])
                     kicker.updateGroup(G)
                 except Exception, e:
                     print e
