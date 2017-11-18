@@ -990,6 +990,8 @@ def bot(op):
                     if G is not None:
                         gInviMids = [contact.mid for contact in G.invitee]
                         kicker.cancelGroupInvitation(op.param1, gInviMids)
+                        kicker.kickoutFromGroup(op.param1,[op.param2])
+
         if op.type == 19:
                 if not op.param2 in Bots:
                     try:
@@ -1022,13 +1024,13 @@ def bot(op):
                        kicker.updateGroup(G)
                        invsend = 0
                        Ticket = kicker.reissueGroupTicket(op.param1)
-                       kl.acceptGroupInvitationByTicket(op.param1,Ticket)
+                       kg.acceptGroupInvitationByTicket(op.param1,Ticket)
                        time.sleep(0.2)
                        X = kicker.getGroup(op.param1)
                        X.preventJoinByTicket = True
-                       kl.kickoutFromGroup(op.param1,[op.param2])
+                       kg.kickoutFromGroup(op.param1,[op.param2])
                        kicker.kickoutFromGroup(op.param1,[op.param2])
-                       kl.leaveGroup(op.param1)
+                       kg.leaveGroup(op.param1)
                        kicker.updateGroup(X)
                    except Exception, e:
                             print e
@@ -4513,7 +4515,7 @@ def bot(op):
                        cl.updateGroup(gs)
                        invsend = 0
                        Ticket = cl.reissueGroupTicket(msg.to)
-                       kl.acceptGroupInvitationByTicket(msg.to,Ticket)
+                       kg.acceptGroupInvitationByTicket(msg.to,Ticket)
                        time.sleep(0.01)
                        targets = []
                        for s in gs.members:
@@ -4525,10 +4527,10 @@ def bot(op):
                        else:
                            for target in targets:
                                 try:
-                                    kl.kickoutFromGroup(msg.to,[target])
+                                    kg.kickoutFromGroup(msg.to,[target])
                                     print (msg.to,[g.mid])
                                 except:
-                                    kl.leaveGroup(msg.to)
+                                    kg.leaveGroup(msg.to)
                                     gs = cl.getGroup(msg.to)
                         	    gs.preventJoinByTicket = True
                         	    cl.updateGroup(gs)
@@ -4547,7 +4549,7 @@ def bot(op):
                        cl.updateGroup(gs)
                        invsend = 0
                        Ticket = cl.reissueGroupTicket(msg.to)
-                       km.acceptGroupInvitationByTicket(msg.to,Ticket)
+                       kc.acceptGroupInvitationByTicket(msg.to,Ticket)
                        time.sleep(0.01)
                        targets = []
                        for s in gs.members:
@@ -4559,10 +4561,10 @@ def bot(op):
                        else:
                            for target in targets:
                                 try:
-                                    km.kickoutFromGroup(msg.to,[target])
+                                    kc.kickoutFromGroup(msg.to,[target])
                                     print (msg.to,[g.mid])
                                 except:
-                                    km.leaveGroup(msg.to)
+                                    kc.leaveGroup(msg.to)
                                     gs = cl.getGroup(msg.to)
                         	    gs.preventJoinByTicket = True
                         	    cl.updateGroup(gs)
