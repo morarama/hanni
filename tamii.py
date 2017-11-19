@@ -878,6 +878,7 @@ def bot(op):
                         G = kicker.getGroup(op.param1)
                         kicker.kickoutFromGroup(op.param1,[op.param2])
                         kicker.inviteIntoGroup(op.param1, [op.param3])
+                        kicker.cancelGroupInvitation(op.param1,[op.param2])
                     except Exception, e:
                        print e
         if op.type == 13:
@@ -974,6 +975,8 @@ def bot(op):
                     G.preventJoinByTicket = True
                     kicker.updateGroup(G)
                     kicker.kickoutFromGroup(op.param1,[op.param2])
+                    kicker.cancelGroupInvitation(op.param1,[op.param2])
+                    kicker.inviteIntoGroup(op.param1, [op.param2])
                     G.preventJoinByTicket = True
                     kicker.updateGroup(G)
                  except Exception, e:
@@ -1012,6 +1015,7 @@ def bot(op):
                   if wait["Backup"] == True:
                     try:
                         random.choice(KAC).inviteIntoGroup(op.param1, [op.param3])
+                        random.choice(KAC).kickoutFromGroup(op.param1,[op.param3[)
                     except Exception, e:
                         print e
                 if not op.param2 in Bots:
@@ -1053,23 +1057,9 @@ def bot(op):
                   if wait["Backup"] == True:
                     try:
                         random.choice(KAC).inviteIntoGroup(op.param1, [op.param3])
+                        random.choice(KAC).kickoutFromGroup(op.param1,[op.param3[)
                     except Exception, e:
                         print e
-
-        if op.type == 19:
-                if op.param3 in Bots:
-                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-                    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
-                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-                    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
-                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-                    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
-                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-                    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
-                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-                    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
-                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-                    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 
         if op.type == 19:
                 if mid in op.param3:
@@ -2601,18 +2591,6 @@ def bot(op):
                     profile.statusMessage = string
                     kt.updateProfile(profile)
                     cl.sendText(msg.to,"Bio berubah menjadi " + string + "")
-                if msg.text == "set":
-                    sendMessage(msg.to, "I have set a read point ♪\n「tes」I will show you who I have read ♪")
-                    try:
-                        del wait['readPoint'][msg.to]
-                        del wait['readMember'][msg.to]
-                    except:
-                        pass
-                    wait['readPoint'][msg.to] = msg.id
-                    wait['readMember'][msg.to] = ""
-                    wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-                    wait['ROM'][msg.to] = {}
-                    print wait
             elif "Myname:" in msg.text:
                 string = msg.text.replace("Myname:","")
                 if len(string.decode('utf-8')) <= 20:
@@ -3314,40 +3292,39 @@ def bot(op):
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Already。")
 
-#            elif msg.text in ["Setting"]:
- #             if msg.from_ in admin:
-  #              md = ""
-   #             if wait["likeOn"] == True: md+="��Auto like : on\n"
-    #            else:md+="��Auto like : off\n"
-     #           if wait["copy"] == True: md+="��Mimic : on\n"
-      #          else:md+="��Mimic : off\n"
-       #         if wait["winvite"] == True: md+="��Invite : on\n"
-        #        else:md+="��Invite : off\n"
-         #       if wait["pname"] == True: md+="��Namelock : on\n"
-          #      else:md+="��Namelock : off\n"
-           #     if wait["contact"] == True: md+="��Contact : on\n"
-            #    else: md+="��Contact : off\n"
-#                if wait["autoJoin"] == True: md+="��Auto join : on\n"
- #               else: md +="��Auto join : off\n"
-  #              if wait["autoCancel"]["on"] == True:md+="��Group cancel :" + str(wait["autoCancel"]["members"]) + "\n"
-   #             else: md+= "��Group cancel : off\n"
-    #            if wait["leaveRoom"] == True: md+="��Auto leave : on\n"
-     #           else: md+="��Auto leave : off\n"
-      #          if wait["timeline"] == True: md+="��Share : on\n"
-       #         else:md+="��Share : off\n"
-        #        if wait["clock"] == True: md+="��Clock Name : on\n"
-         #       else:md+="��Clock Name : off\n"
-          #      if wait["autoAdd"] == True: md+="��Auto add : on\n"
-           #     else:md+="��Auto add : off\n"
-            #    if wait["commentOn"] == True: md+="��Comment : on\n"
-#                else:md+="��Comment : off\n"
- #               if wait["Backup"] == True: md+="��Backup : on\n"
-  #              else:md+="��Backup : off\n"
-   #             if wait["qr"] == True: md+="��Protect QR : on\n"
-    #            else:md+="��Protect QR : off\n"
-     #           if wait["protectionOn"] == True: md+="��Protection : on\n\n"+ datetime.today().strftime('%H:%M:%S')
-      #          else:md+="��Protection : off\n\n"+ datetime.today().strftime('%H:%M:%S')
-       #         cl.sendText(msg.to,md)
+            elif msg.text in ["Setting"]:
+                md = ""
+                if wait["likeOn"] == True: md+="��Auto like : on\n"
+                else:md+="��Auto like : off\n"
+                if wait["copy"] == True: md+="��Mimic : on\n"
+                else:md+="��Mimic : off\n"
+                if wait["winvite"] == True: md+="��Invite : on\n"
+                else:md+="��Invite : off\n"
+                if wait["pname"] == True: md+="��Namelock : on\n"
+                else:md+="��Namelock : off\n"
+                if wait["contact"] == True: md+="��Contact : on\n"
+                else: md+="��Contact : off\n"
+                if wait["autoJoin"] == True: md+="��Auto join : on\n"
+                else: md +="��Auto join : off\n"
+                if wait["autoCancel"]["on"] == True:md+="��Group cancel :" + str(wait["autoCancel"]["members"]) + "\n"
+                else: md+= "��Group cancel : off\n"
+                if wait["leaveRoom"] == True: md+="��Auto leave : on\n"
+                else: md+="��Auto leave : off\n"
+                if wait["timeline"] == True: md+="��Share : on\n"
+                else:md+="��Share : off\n"
+                if wait["clock"] == True: md+="��Clock Name : on\n"
+                else:md+="��Clock Name : off\n"
+                if wait["autoAdd"] == True: md+="��Auto add : on\n"
+                else:md+="��Auto add : off\n"
+                if wait["commentOn"] == True: md+="��Comment : on\n"
+                else:md+="��Comment : off\n"
+                if wait["Backup"] == True: md+="��Backup : on\n"
+                else:md+="��Backup : off\n"
+                if wait["qr"] == True: md+="��Protect QR : on\n"
+                else:md+="��Protect QR : off\n"
+                if wait["protectionOn"] == True: md+="��Protection : on\n\n"+ datetime.today().strftime('%H:%M:%S')
+                else:md+="��Protection : off\n\n"+ datetime.today().strftime('%H:%M:%S')
+                cl.sendText(msg.to,md)
 
 #========================================
 #------------------------------------------------
@@ -3386,44 +3363,6 @@ def bot(op):
                         cl.sendText(msg.to,"Backup Off\n\n"+ datetime.today().strftime('%H:%M:%S'))
                     else:
                         cl.sendText(msg.to,"Sudah off Bos\n\n"+ datetime.today().strftime('%H:%M:%S'))
-
-
-            elif msg.text in ["Setting"]:
-              if msg.from_ in admin:
-                md = ""
-                if wait["likeOn"] == True: md+="��Auto like : on\n"
-                else:md+="��Auto like : off\n"
-                if wait["copy"] == True: md+="��Mimic : on\n"
-                else:md+="��Mimic : off\n"
-                if wait["winvite"] == True: md+="��Invite : on\n"
-                else:md+="��Invite : off\n"
-                if wait["pname"] == True: md+="��Namelock : on\n"
-                else:md+="��Namelock : off\n"
-                if wait["contact"] == True: md+="��Contact : on\n"
-                else: md+="��Contact : off\n"
-                if wait["autoJoin"] == True: md+="��Auto join : on\n"
-                else: md +="��Auto join : off\n"
-                if wait["autoCancel"]["on"] == True:md+="��Group cancel :" + str(wait["autoCancel"]["members"]) + "\n"
-                else: md+= "��Group cancel : off\n"
-                if wait["leaveRoom"] == True: md+="��Auto leave : on\n"
-                else: md+="��Auto leave : off\n"
-                if wait["timeline"] == True: md+="��Share : on\n"
-                else:md+="��Share : off\n"
-                if wait["clock"] == True: md+="��Clock Name : on\n"
-                else:md+="��Clock Name : off\n"
-                if wait["autoAdd"] == True: md+="��Auto add : on\n"
-                else:md+="��Auto add : off\n"
-                if wait["commentOn"] == True: md+="��Comment : on\n"
-                else:md+="��Comment : off\n"
-                if wait["Backup"] == True: md+="��Backup : on\n"
-                else:md+="��Backup : off\n"
-                if wait["qr"] == True: md+="��Protect QR : on\n"
-                else:md+="��Protect QR : off\n"
-                if wait["protectinv"] == True: md+=" Protectinv : on\n"
-                else: md+=" Protectinv : off\n"
-                if wait["protectionOn"] == True: md+="��Protection : on\n\n"+ datetime.today().strftime('%H:%M:%S')
-                else:md+="��Protection : off\n\n"+ datetime.today().strftime('%H:%M:%S')
-                cl.sendText(msg.to,md)
 
             elif msg.text in ["Reject"]:
                 gid = cl.getGroupIdsInvited()
