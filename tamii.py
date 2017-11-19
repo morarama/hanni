@@ -877,7 +877,7 @@ def bot(op):
                         kicker = random.choice(klist)
                         G = kicker.getGroup(op.param1)
                         kicker.kickoutFromGroup(op.param1,[op.param2])
-                        kicker.inviteIntoGroup(op.param1, [op.param3])
+                        kicker.inviteIntoGroup(op.param1, [op.param2])
                         kicker.cancelGroupInvitation(op.param1,[op.param2])
                     except Exception, e:
                        print e
@@ -1014,8 +1014,8 @@ def bot(op):
                 if not op.param2 in Bots:
                   if wait["Backup"] == True:
                     try:
-                        random.choice(KAC).inviteIntoGroup(op.param1, [op.param3])
-                        random.choice(KAC).kickoutFromGroup(op.param1,[op.param3[)
+                        random.choice(KAC).inviteIntoGroup(op.param1, [op.param2])
+                        random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                     except Exception, e:
                         print e
                 if not op.param2 in Bots:
@@ -1057,7 +1057,7 @@ def bot(op):
                   if wait["Backup"] == True:
                     try:
                         random.choice(KAC).inviteIntoGroup(op.param1, [op.param3])
-                        random.choice(KAC).kickoutFromGroup(op.param1,[op.param3[)
+                        random.choice(KAC).kickoutFromGroup(op.param1,[op.param3])
                     except Exception, e:
                         print e
 
