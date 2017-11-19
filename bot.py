@@ -9,11 +9,11 @@ from threading import Thread
 from pyowm import OWM
 
 cl = LINETCR.LINE()
-cl.login(token="Em1MLKWf2rYhXqF6Izb8.t0uzqyjD9cgRN/IdWhSi2a.MJJqIhbXAZuk9CL7DbotNLpfdAAXj5daZgF5RNGTLu4=")
+cl.login(token="EmqyfGRzG8shyaxxyxva.h3KqNoP0JeN8FrJP6uiJoG.65n8x0QhvQulMeOArHx3qyz52in9QZbKWiCG2tE+Tvk=")
 cl.loginResult()
 
 kk = LINETCR.LINE()
-kk.login(token="EmqyfGRzG8shyaxxyxva.h3KqNoP0JeN8FrJP6uiJoG.65n8x0QhvQulMeOArHx3qyz52in9QZbKWiCG2tE+Tvk=")
+kk.login(token="EmllAMjlbuZXcuGB3Icf.7I8ZPERZDnDxt4+rBdMTlW.as/wQesc1IqyojkUIln11tZZBZ26qIpFEb0mINH9ud8=")
 kk.loginResult()
 
 ki = LINETCR.LINE()
