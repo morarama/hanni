@@ -3,7 +3,7 @@
 import LINETCR
 from LINETCR.lib.curve.ttypes import *
 from datetime import datetime
-import time,random,sys,json,codecs,threading,glob,re,datetime,subprocess,urllib3,os,requests,urllib,goslate,pyown
+import time,random,sys,json,codecs,threading,glob,re,datetime,subprocess,urllib3,os,requests,urllib,goslate,pyowm
 from bs4 import BeautifulSoup
 from threading import Thread
 from pyowm import OWM
