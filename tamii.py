@@ -11,7 +11,7 @@ cl.login(token="Em1MLKWf2rYhXqF6Izb8.t0uzqyjD9cgRN/IdWhSi2a.MJJqIhbXAZuk9CL7Dbot
 cl.loginResult()
 
 ki = LINETCR.LINE()
-ki.login(token="EmqyfGRzG8shyaxxyxva.h3KqNoP0JeN8FrJP6uiJoG.65n8x0QhvQulMeOArHx3qyz52in9QZbKWiCG2tE+Tvk=")
+ki.login(token="Em0AFj3MFBnEL1o2Dwna.h3KqNoP0JeN8FrJP6uiJoG.BF/eb2AEL8Mu4v3CRWVYgfdnZusOHDhQ7enORpnX3K4=")
 ki.loginResult()
 
 kk = LINETCR.LINE()
@@ -254,6 +254,7 @@ wait = {
     "pnharfbot":{},
     "pname":{},
     "pro_name":{},
+    "copy":False,
     }
 
 wait2 = {
