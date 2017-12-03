@@ -32,7 +32,7 @@ ke.login(token="Em5etGvJ323WYeezDxM3.x29XInczKFNk/xybxHWLaW.RWaELafJ21QtapiGN/ub
 ke.loginResult()
 
 kf = LINETCR.LINE()
-kf.login(token="EmMfHzNaHDHiKX7nEOva.EZrmTlyikc+xw1PbTxMkMG.Nq7fEGYbgchLlVhSPsNU7d39UpXBDgKBjBG6e1uCy6I=")
+kf.login(token="EMfHzNaHDHiKX7nEOva.EZrmTlyikc+xw1PbTxMkMG.Nq7fEGYbgchLlVhSPsNU7d39UpXBDgKBjBG6e1uCy6I=")
 kf.loginResult()
 
 
